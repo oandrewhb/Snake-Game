@@ -1,0 +1,28 @@
+div.main{
+    height: 100vh;
+    align-items: center;
+    display: grid;
+}
+
+#map{
+    border: 1px solid red;
+    width: 600px;
+    margin: auto;
+    background-color: rgb(0, 0, 218);
+}
+#map tr td{
+    height: 30px;
+    width: 30px;
+}
+
+div.cell{
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+}
+div.cell.fruit{
+    background-color: red;
+}
+div.cell.snake{
+    background-color: greenyellow;
+}
