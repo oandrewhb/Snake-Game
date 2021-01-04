@@ -1,6 +1,6 @@
 const map = {
-    width: 20,
-    height: 20,
+    width: 17,
+    height: 15,
     map: document.querySelector('#map'),
 }
 
@@ -39,11 +39,11 @@ function randomInt(min, max) {
 }
 
 function Fruit(){
-    this.y = 0
-    this.x = 0
+    this.y = 7
+    this.x = 12
     this.changeLocation = function(){
-        let newY = randomInt(0, map.width-1)
-        let newX = randomInt(0, map.height-1)
+        let newY = randomInt(0, map.height-1)
+        let newX = randomInt(0, map.width-1)
 
         while($(mapCells[newY][newX]).hasClass("snake")){
             newX = randomInt(0, map.height-1)
@@ -56,7 +56,6 @@ function Fruit(){
         mapCells[this.y][this.x].classList.add('fruit')
     }
 
-    this.changeLocation()
     mapCells[this.y][this.x].classList.add('fruit')
 }
 const fruit = new Fruit()
@@ -69,7 +68,7 @@ function snakePart(y, x){
 
 const snake = {
     direction: "right",
-    headLocation: {y:10, x:0},
+    headLocation: {y:7, x:0},
     array: [],
     addSnakePart(repetsion=1){
         for(let i = 0; i < repetsion; i++){
@@ -86,7 +85,7 @@ const snake = {
                     newHeadLocation.y--
                 }
             } else if(this.direction == "right"){
-                if(this.headLocation.x == map.height-1){
+                if(this.headLocation.x == map.width-1){
                     newHeadLocation.x = 0
                 } else {
                     newHeadLocation.x++
@@ -99,7 +98,7 @@ const snake = {
                 }
             } else if(this.direction == "left"){
                 if(this.headLocation.x == 0){
-                    newHeadLocation.x = map.height-1
+                    newHeadLocation.x = map.width-1
                 } else {
                     newHeadLocation.x--
                 }
@@ -165,7 +164,7 @@ const snake = {
         return result
     }
 }
-snake.addSnakePart(10)
+snake.addSnakePart(3)
 
 document.addEventListener('keyup', (e) => {
     if (e.code === "ArrowUp" || e.code === "KeyW"){snake.moveSnake("up")}
