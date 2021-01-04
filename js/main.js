@@ -73,18 +73,49 @@ const snake = {
     array: [],
     addSnakePart(repetsion=1){
         for(let i = 0; i < repetsion; i++){
+
+            const newHeadLocation = {
+                y: this.headLocation.y,
+                x: this.headLocation.x
+            }   
+
             if(this.direction == "up"){
-                this.headLocation.y--
+                if(this.headLocation.y == 0){
+                    newHeadLocation.y = map.height-1
+                } else {
+                    newHeadLocation.y--
+                }
             } else if(this.direction == "right"){
-                this.headLocation.x++
+                if(this.headLocation.x == map.height-1){
+                    newHeadLocation.x = 0
+                } else {
+                    newHeadLocation.x++
+                }
             } else if(this.direction == "down"){
-                this.headLocation.y++
+                if(this.headLocation.y == map.height-1){
+                    newHeadLocation.y = 0
+                } else {
+                    newHeadLocation.y++
+                }
             } else if(this.direction == "left"){
-                this.headLocation.x--
+                if(this.headLocation.x == 0){
+                    newHeadLocation.x = map.height-1
+                } else {
+                    newHeadLocation.x--
+                }
             }
-            this.array.push(new snakePart(this.headLocation.y, this.headLocation.x))
-            mapCells[this.headLocation.y][this.headLocation.x].classList.add('snake')
+
+            if($(mapCells[newHeadLocation.y][newHeadLocation.x]).hasClass("snake")){
+                return false
+            } else {
+                this.headLocation.y = newHeadLocation.y
+                this.headLocation.x = newHeadLocation.x
+
+                this.array.push(new snakePart(this.headLocation.y, this.headLocation.x))
+                mapCells[this.headLocation.y][this.headLocation.x].classList.add('snake')
+            }
         }
+        return true
     },
     removeSnakePart(){
         const currentSnakePart = this.array[0]
@@ -92,27 +123,49 @@ const snake = {
         this.array.splice(0, 1)
     },
     moveSnake(param){
-        this.changeDirection(param)
-        this.addSnakePart()
-        if(this.headLocation.x == fruit.x && this.headLocation.y == fruit.y){
-            fruit.changeLocation()
-        } else {
-            this.removeSnakePart()
+        if(this.changeDirection(param)){
+            if(this.addSnakePart()){
+                if(this.headLocation.x == fruit.x && this.headLocation.y == fruit.y){
+                    fruit.changeLocation()
+                } else {
+                    this.removeSnakePart()
+                }
+            } else {
+                alert("BATEU")
+            }
         }
     },
     changeDirection(param){
+        let result = true
         if(param == "up"){
-            this.direction = "up"
+            if(this.direction != "down"){
+                this.direction = "up"
+            } else {
+                result = false
+            }
         } else if(param == "right"){
-            this.direction = "right"
+            if(this.direction != "left"){
+                this.direction = "right"
+            } else {
+                result = false
+            }
         } else if(param == "down"){
-            this.direction = "down"
+            if(this.direction != "up"){
+                this.direction = "down"
+            } else {
+                result = false
+            }
         } else if(param == "left"){
-            this.direction = "left"
+            if(this.direction != "right"){
+                this.direction = "left"
+            } else {
+                result = false
+            }
         }
+        return result
     }
 }
-snake.addSnakePart(5)
+snake.addSnakePart(10)
 
 document.addEventListener('keyup', (e) => {
     if (e.code === "ArrowUp"){snake.moveSnake("up")}
