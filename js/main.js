@@ -46,8 +46,8 @@ function Fruit(){
         let newX = randomInt(0, map.width-1)
 
         while($(mapCells[newY][newX]).hasClass("snake")){
-            newX = randomInt(0, map.height-1)
-            newY = randomInt(0, map.width-1)
+            newY = randomInt(0, map.height-1)
+            newX = randomInt(0, map.width-1)
         }
 
         mapCells[this.y][this.x].classList.remove('fruit')
