@@ -171,4 +171,22 @@ document.addEventListener('keyup', (e) => {
     else if (e.code === "ArrowDown" || e.code === "KeyS"){snake.moveSnake("down")}
     else if(e.code === "ArrowRight" || e.code === "KeyD"){snake.moveSnake("right")}
     else if(e.code === "ArrowLeft" || e.code === "KeyA"){snake.moveSnake("left")}
+    else if(e.code === "KeyP"){pauseButton()}
     });
+
+let pause = false
+function pauseButton(){
+    if(pause == false){
+        pause = true
+    } else {
+        pause = false
+    }
+}
+
+function run(){
+    if(!pause){
+        snake.moveSnake()
+    }
+    setTimeout(run, 1000/5)
+}
+run()
