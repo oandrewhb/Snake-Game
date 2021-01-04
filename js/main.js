@@ -168,8 +168,8 @@ const snake = {
 snake.addSnakePart(10)
 
 document.addEventListener('keyup', (e) => {
-    if (e.code === "ArrowUp"){snake.moveSnake("up")}
-    else if (e.code === "ArrowDown"){snake.moveSnake("down")}
-    else if(e.code === "ArrowRight"){snake.moveSnake("right")}
-    else if(e.code === "ArrowLeft"){snake.moveSnake("left")}
+    if (e.code === "ArrowUp" || e.code === "KeyW"){snake.moveSnake("up")}
+    else if (e.code === "ArrowDown" || e.code === "KeyS"){snake.moveSnake("down")}
+    else if(e.code === "ArrowRight" || e.code === "KeyD"){snake.moveSnake("right")}
+    else if(e.code === "ArrowLeft" || e.code === "KeyA"){snake.moveSnake("left")}
     });
