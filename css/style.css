@@ -6,7 +6,6 @@ div.main{
 
 #map{
     border: 1px solid red;
-    width: 600px;
     margin: auto;
     background-color: rgb(0, 0, 218);
 }
