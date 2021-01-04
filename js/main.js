@@ -9,7 +9,6 @@ function renderMap(){
     //render map
     for(let line = 0; line < map.height; line++){
         const current_line = document.createElement('tr')
-        const current_cells_line = []
         for(let column = 0; column < map.width; column++){
             current_column = document.createElement('td')
             current_cell = document.createElement('div')
@@ -122,6 +121,7 @@ const snake = {
         this.array.splice(0, 1)
     },
     moveSnake(param){
+        controler.restart()
         if(this.changeDirection(param)){
             if(this.addSnakePart()){
                 if(this.headLocation.x == fruit.x && this.headLocation.y == fruit.y){
@@ -183,10 +183,24 @@ function pauseButton(){
     }
 }
 
-function run(){
-    if(!pause){
-        snake.moveSnake()
+const controler = {
+    count: 0,
+    max: 25,
+    restart(){
+        this.count = 0
+    },
+    add(){
+        this.count++
     }
-    setTimeout(run, 1000/5)
 }
-run()
+function play(){
+    if(!pause){
+        controler.add()
+        if(controler.count >= controler.max){
+            snake.moveSnake()
+            controler.restart()
+        }
+    }
+    setTimeout(play, 1)
+}
+play()
