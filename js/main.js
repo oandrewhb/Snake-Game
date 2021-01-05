@@ -11,10 +11,11 @@ document.addEventListener('keydown', (e) => {
     else if(e.code === "ArrowLeft" || e.code === "KeyA"){snake.moveSnake("left")}
     else if(e.code === "KeyP"){pauseButton()}
 
+    pause = false
     controler.restart()
     });
 
-let pause = false
+let pause = true
 function pauseButton(){
     if(pause == false){
         pause = true
