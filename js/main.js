@@ -1,5 +1,4 @@
-const map = createMap()
-map.renderMap()
+const map = createMap(); map.renderMap()
 
 const fruit = createFruit()
 

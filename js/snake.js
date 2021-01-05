@@ -97,8 +97,18 @@ function createSnake(initialSnakeSize=1){
                 }
             } else {
                 alert("GAME OVER")
+                snake.restart()
+                fruit.restart()
             }
         }
+    }
+    newSnake.restart = function(){
+        this.direction = "right"
+        while(this.array.length > 0){
+            this.removeSnakePart()
+        }
+        this.headLocation = {y:7, x:0}
+        this.addSnakePart(3)
     }
 
     newSnake.addSnakePart(initialSnakeSize)

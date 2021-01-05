@@ -16,6 +16,12 @@ function createFruit(){
         this.x = newX
         map.mapCells[this.y][this.x].classList.add('fruit')
     }
+    newFruit.restart = function(){
+        map.mapCells[this.y][this.x].classList.remove('fruit')
+        this.y = 7
+        this.x = 12
+        map.mapCells[this.y][this.x].classList.add('fruit')
+    }
 
     map.mapCells[newFruit.y][newFruit.x].classList.add('fruit')
 
