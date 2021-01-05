@@ -29,3 +29,7 @@ div.cell.fruit{
 div.cell.snake{
     background-color: #4876EB;
 }
+
+.text-center{text-align: center !important;}
+.text-left{text-align: left !important;}
+.text-right{text-align: right !important;}

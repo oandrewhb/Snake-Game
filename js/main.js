@@ -5,23 +5,30 @@ const fruit = createFruit()
 const snake = createSnake(3)
 
 document.addEventListener('keydown', (e) => {
-    if (e.code === "ArrowUp" || e.code === "KeyW"){snake.moveSnake("up")}
-    else if (e.code === "ArrowDown" || e.code === "KeyS"){snake.moveSnake("down")}
-    else if(e.code === "ArrowRight" || e.code === "KeyD"){snake.moveSnake("right")}
-    else if(e.code === "ArrowLeft" || e.code === "KeyA"){snake.moveSnake("left")}
+    if (e.code === "ArrowUp" || e.code === "KeyW"){snake.moveSnake("up"); pauseOff()}
+    else if (e.code === "ArrowDown" || e.code === "KeyS"){snake.moveSnake("down"); pauseOff()}
+    else if(e.code === "ArrowRight" || e.code === "KeyD"){snake.moveSnake("right"); pauseOff()}
+    else if(e.code === "ArrowLeft" || e.code === "KeyA"){snake.moveSnake("left"); pauseOff()}
     else if(e.code === "KeyP"){pauseButton()}
 
-    pause = false
     controler.restart()
     });
 
 let pause = true
 function pauseButton(){
     if(pause == false){
-        pause = true
+        pauseOn()
     } else {
-        pause = false
+        pauseOff()
     }
+}
+function pauseOn(){
+    pause = true
+    document.querySelector('#pause-text').innerHTML = "Press any button to start"
+}
+function pauseOff(){
+    pause = false
+    document.querySelector('#pause-text').innerHTML = "Press <b>P</b> to pause"
 }
 
 const controler = {
