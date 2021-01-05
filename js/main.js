@@ -31,43 +31,11 @@ function renderMap(){
 }
 renderMap()
 
-function randomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function Fruit(){
-    this.y = 7
-    this.x = 12
-    this.changeLocation = function(){
-        let newY = randomInt(0, map.height-1)
-        let newX = randomInt(0, map.width-1)
-
-        while($(mapCells[newY][newX]).hasClass("snake")){
-            newY = randomInt(0, map.height-1)
-            newX = randomInt(0, map.width-1)
-        }
-
-        mapCells[this.y][this.x].classList.remove('fruit')
-        this.y = newY
-        this.x = newX
-        mapCells[this.y][this.x].classList.add('fruit')
-    }
-
-    mapCells[this.y][this.x].classList.add('fruit')
-}
-const fruit = new Fruit()
-
-
-function snakePart(y, x){
-    this.y = y
-    this.x = x
-}
+const fruit = createFruit()
 
 const snake = createSnake(3)
 
-document.addEventListener('keyup', (e) => {
+document.addEventListener('keydown', (e) => {
     if (e.code === "ArrowUp" || e.code === "KeyW"){snake.moveSnake("up")}
     else if (e.code === "ArrowDown" || e.code === "KeyS"){snake.moveSnake("down")}
     else if(e.code === "ArrowRight" || e.code === "KeyD"){snake.moveSnake("right")}

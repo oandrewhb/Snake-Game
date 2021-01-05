@@ -1,0 +1,23 @@
+function createFruit(){
+    newFruit = {}
+    newFruit.y = 7
+    newFruit.x = 12
+    newFruit.changeLocation = function(){
+        let newY = randomInt(0, map.height-1)
+        let newX = randomInt(0, map.width-1)
+
+        while($(mapCells[newY][newX]).hasClass("snake")){
+            newY = randomInt(0, map.height-1)
+            newX = randomInt(0, map.width-1)
+        }
+
+        mapCells[this.y][this.x].classList.remove('fruit')
+        this.y = newY
+        this.x = newX
+        mapCells[this.y][this.x].classList.add('fruit')
+    }
+
+    mapCells[newFruit.y][newFruit.x].classList.add('fruit')
+
+    return newFruit
+}

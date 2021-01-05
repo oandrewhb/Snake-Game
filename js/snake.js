@@ -1,3 +1,8 @@
+function snakePart(y, x){
+    this.y = y
+    this.x = x
+}
+
 function createSnake(initialSnakeSize=1){
     const newSnake = {}
     newSnake.direction = "right"
@@ -85,7 +90,7 @@ function createSnake(initialSnakeSize=1){
     newSnake.moveSnake = function(param){
         if(this.changeDirection(param)){
             if(this.addSnakePart()){
-                if(this.headLocation.x == fruit.x && this.headLocation.y == fruit.y){
+                if($(mapCells[this.headLocation.y][this.headLocation.x]).hasClass("fruit")){
                     fruit.changeLocation()
                 } else {
                     this.removeSnakePart()
