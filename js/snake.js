@@ -41,21 +41,21 @@ function createSnake(initialSnakeSize=1){
                 }
             }
 
-            if($(mapCells[newHeadLocation.y][newHeadLocation.x]).hasClass("snake")){
+            if($(map.mapCells[newHeadLocation.y][newHeadLocation.x]).hasClass("snake")){
                 return false
             } else {
                 this.headLocation.y = newHeadLocation.y
                 this.headLocation.x = newHeadLocation.x
 
                 this.array.push(new snakePart(this.headLocation.y, this.headLocation.x))
-                mapCells[this.headLocation.y][this.headLocation.x].classList.add('snake')
+                map.mapCells[this.headLocation.y][this.headLocation.x].classList.add('snake')
             }
         }        
         return true
     }
     newSnake.removeSnakePart = function(){
         const currentSnakePart = this.array[0]
-        mapCells[currentSnakePart.y][currentSnakePart.x].classList.remove('snake')
+        map.mapCells[currentSnakePart.y][currentSnakePart.x].classList.remove('snake')
         this.array.splice(0, 1)
     }
     newSnake.changeDirection = function(param){
@@ -90,7 +90,7 @@ function createSnake(initialSnakeSize=1){
     newSnake.moveSnake = function(param){
         if(this.changeDirection(param)){
             if(this.addSnakePart()){
-                if($(mapCells[this.headLocation.y][this.headLocation.x]).hasClass("fruit")){
+                if($(map.mapCells[this.headLocation.y][this.headLocation.x]).hasClass("fruit")){
                     fruit.changeLocation()
                 } else {
                     this.removeSnakePart()
