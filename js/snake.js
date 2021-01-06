@@ -92,10 +92,12 @@ function createSnake(initialSnakeSize=1){
             if(this.addSnakePart()){
                 if($(map.mapCells[this.headLocation.y][this.headLocation.x]).hasClass("fruit")){
                     fruit.changeLocation()
+                    updateScore()
                 } else {
                     this.removeSnakePart()
                 }
             } else {
+                resetScoreCounter()
                 alert("GAME OVER")
                 snake.restart()
                 fruit.restart()

@@ -33,3 +33,16 @@ div.cell.snake{
 .text-center{text-align: center !important;}
 .text-left{text-align: left !important;}
 .text-right{text-align: right !important;}
+
+
+.score{
+    padding: 10px 100px 15px 30px;
+    text-align: left;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.575);
+    right: 0px;
+    border-radius: 0px 0px 0px 20px;
+}
+.score > p{
+    margin: 0px;
+}

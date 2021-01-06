@@ -52,3 +52,23 @@ function play(){
     setTimeout(play, 1)
 }
 play()
+
+function updateScore(){
+    const score = document.querySelector('#score-counter')
+    let count_score = parseInt(score.textContent)
+
+    count_score++
+    score.textContent = count_score.toString()
+}
+function resetScoreCounter(){
+    const score = document.querySelector('#score-counter')
+    const highScore = document.querySelector('#highscore-counter')
+
+    let count_score = parseInt(score.textContent)
+    let count_highScore = parseInt(highScore.textContent)
+    if(count_highScore < count_score){
+        highScore.textContent = count_score.toString()
+    }
+
+    document.querySelector('#score-counter').textContent = "0"
+}
