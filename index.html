@@ -12,6 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- fim - Bootstrap -->
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,9 +25,47 @@
             <p>HighScore: <span id="highscore-counter">0</span></p>
         </div>
 
-        <table id="map">
-        </table>
-        <p class="text-center" id="pause-text">Press any button to start</p>
+        <div class="container">
+
+            <div class="row vertical-margin">
+                <div class="col no-padding">
+                    <table id="map"></table>
+                </div>
+            </div>
+
+            <div class="row vertical-margin d-sm-block d-md-none">
+                <div class="col">
+
+                    <div class="mobile-controller">
+                        <div class="container">
+                            <div class="row vertical-margin">
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller ghost"></button></div>
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller" id="mobileBtnUp"><i class="bi bi-arrow-up"></i></button></div>
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller ghost"></button></div>
+                            </div>
+                            <div class="row vertical-margin">
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller" id="mobileBtnLeft"><i class="bi bi-arrow-left"></i></button></div>
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller" id="mobileBtnPause"><i class="bi bi-play-circle"></i></button></div>
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller" id="mobileBtnRight"><i class="bi bi-arrow-right"></i></button></div>
+                            </div>
+                            <div class="row vertical-margin">
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller ghost"></button></div>
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller" id="mobileBtnDown"><i class="bi bi-arrow-down"></i></button></div>
+                                <div class="col-4"><button type="button" class="btn btn-mobile-controller ghost"></button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row d-none d-md-block">
+                <div class="col">
+                    <p class="text-center" id="pause-text">Press any button to start</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script>
@@ -34,6 +75,7 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     </script>
+    <script src="js/pause.js"></script>
     <script src="js/map.js"></script>
     <script src="js/fruit.js"></script>
     <script src="js/snake.js"></script>
