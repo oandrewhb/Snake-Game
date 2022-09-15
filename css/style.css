@@ -64,11 +64,30 @@ div.cell.snake{
 }
 
 .btn-mobile-controller {
-    width: 100%;
-    height: 100%;
+    width: 110px;
+    height: 110px;
     background-color: transparent;
     border: 2px solid #4876EB;
     color: #4876EB;
+    font-size: 40px;
+}
+@media only screen and (max-width: 368px) {
+    .btn-mobile-controller {
+        width: 100px;
+        height: 100px;
+    }
+}
+@media only screen and (max-width: 368px) {
+    .btn-mobile-controller {
+        width: 90px;
+        height: 90px;
+    }
+}
+@media only screen and (max-width: 309px) {
+    .btn-mobile-controller {
+        width: 80px;
+        height: 80px;
+    }
 }
 .btn-mobile-controller.ghost{
     border-color: transparent;
