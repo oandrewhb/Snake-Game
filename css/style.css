@@ -36,6 +36,7 @@ div.cell.snake{
 
 
 .score{
+    top: 0px;
     padding: 10px 100px 15px 30px;
     text-align: left;
     position: fixed;
