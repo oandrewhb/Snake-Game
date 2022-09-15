@@ -23,11 +23,11 @@ const mobileBtnLeft = document.querySelector('#mobileBtnLeft')
 const mobileBtnRight = document.querySelector('#mobileBtnRight')
 const mobileBtnPause = document.querySelector('#mobileBtnPause')
 
-mobileBtnUp.addEventListener('click', () => {snake.moveSnake("up"); pauseOff()})
-mobileBtnDown.addEventListener('click', () => {snake.moveSnake("down"); pauseOff()})
-mobileBtnLeft.addEventListener('click', () => {snake.moveSnake("left"); pauseOff()})
-mobileBtnRight.addEventListener('click', () => {snake.moveSnake("right"); pauseOff()})
-mobileBtnPause.addEventListener('click', () => {pauseButton()})
+mobileBtnUp.addEventListener('touchstart', () => {snake.moveSnake("up"); pauseOff()})
+mobileBtnDown.addEventListener('touchstart', () => {snake.moveSnake("down"); pauseOff()})
+mobileBtnLeft.addEventListener('touchstart', () => {snake.moveSnake("left"); pauseOff()})
+mobileBtnRight.addEventListener('touchstart', () => {snake.moveSnake("right"); pauseOff()})
+mobileBtnPause.addEventListener('touchstart', () => {pauseButton()})
 /* fim - Mobile controller */
 
 const controler = {
