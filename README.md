@@ -4,7 +4,6 @@
  link do jogo: [clique aqui](https://andrewhermelino.github.io/Snake-Game/)
  
  ### TODO
- - Mobile
  - Resolver que ocorre quando o tabuleiro inteiro é preenchido
  - Resolver bug quando o jogador segura a seta pra direção oposta em que a cobra está andando (a cobrinha para de andar)
  - Mobo multiplayer
