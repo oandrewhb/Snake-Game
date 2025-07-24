@@ -1,7 +1,7 @@
 # Snake Game
  Um simples jogo da cobrinha feito em Javascript
  
- link do jogo: [clique aqui](https://andrewhermelino.github.io/Snake-Game/)
+ link do jogo: [clique aqui](https://oandrewhb.github.io/Snake-Game/)
  
  ### TODO
  - Resolver que ocorre quando o tabuleiro inteiro é preenchido
